@@ -1,36 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      form {
-  text-align: center;
-}
+<head>
+  <title>ログインフォーム</title>
+</head>
+<body>
+  <h1>ログインフォーム</h1>
+  <form id="loginForm">
+    <label for="username">ユーザー名:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">ログイン</button>
+  </form>
+  <p id="message"></p>
 
-.login_form_btm {
-  padding: 10px 0;
-  background-color: #F7F7F7;
-  margin: 10px 0;
-}
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
 
-input {
-  width: 200px;
-  padding: 3px;
-  margin: 5px 0;
-}
-    </style>
-  </head>
-  <body>
-   <center>
-    <form name="login_form">
-  <div class="login_form_top">
-    <h1>GSearch Login</h1>
-  </div>
-  <div class="login_form_btm">
-    <input type="id" name="user_id" placeholder="ユーザーIDを入力してください"><br>
-    <input type="password" name="password"placeholder="パスワードを入力してください">
-  </div>
-  <button type="submit">ログイン</button>
-</form>
-   </center>
-  </body>
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+      const messageElement = document.getElementById("message");
+
+      if (response.ok) {
+        messageElement.textContent = "ログイン成功: " + data.message;
+      } else {
+        messageElement.textContent = "ログイン失敗: " + data.message;
+      }
+    });
+  </script>
+</body>
 </html>
