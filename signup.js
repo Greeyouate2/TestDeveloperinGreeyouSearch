@@ -4,7 +4,7 @@ const signupButton = document.getElementById("signup-button");
 const signoutButton = document.getElementById("signout-button");
 
 // サーバーのURLを用意
-const serverUrl = "https://gsearch-search.github.io/text/uwu.txt";
+const serverUrl = "https://docs.google.com/spreadsheets/d/1-K6ObSjkbRz8WQcbJ9eE9RPson9K85X5ZHMF5Bqr30g/edit";
 
 // サインアップ機能のロジックを定義
 function signup() {
