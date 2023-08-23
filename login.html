@@ -1,43 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>ログインフォーム</title>
-</head>
-<body>
-  <h1>ログインフォーム</h1>
-  <form id="loginForm">
+<form id="login-form">
+  <div>
     <label for="username">ユーザー名:</label>
-    <input type="text" id="username" name="username" required><br><br>
+    <input type="text" id="username" name="username" required>
+  </div>
+  <div>
     <label for="password">パスワード:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <button type="submit">ログイン</button>
-  </form>
-  <p id="message"></p>
-
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
-      });
-
-      const data = await response.json();
-      const messageElement = document.getElementById("message");
-
-      if (response.ok) {
-        messageElement.textContent = "ログイン成功: " + data.message;
-      } else {
-        messageElement.textContent = "ログイン失敗: " + data.message;
-      }
-    });
-  </script>
-</body>
-</html>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <div>
+    <button type="submit" id="login-button">ログイン</button>
+  </div>
+</form>
+<head>
+  <script src="login.js"></script>
+</head>
