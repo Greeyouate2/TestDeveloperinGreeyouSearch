@@ -10,7 +10,7 @@ function login() {
 
   // 固定のユーザー名とパスワードを用意
   const validUsername = "admin";
-  const validPassword = "1234";
+  const validPassword = "1234adminj";
 
   // 入力された値と固定の値を比較
   if (username === validUsername && password === validPassword) {
