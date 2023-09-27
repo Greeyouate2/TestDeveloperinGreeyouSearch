@@ -18,7 +18,16 @@
 <head>
   <title>--の検索結果</title>
   <script src="search.js">
-    document.title(q + "の検索結果")
+    <script>
+        // URLからクエリパラメータ（検索キーワード）を取得します
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchKeyword = urlParams.get('q');
+
+        // 検索キーワードが存在する場合、ページのタイトルを設定します
+        if (searchKeyword) {
+            document.title = `${searchKeyword} - の検索結果 `;
+        }
+    </script>
   </script>
   <style>
     #img-header{
