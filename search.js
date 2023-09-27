@@ -1,1 +1,1 @@
-document.title(q)
+document.title(q + の検索結果)
