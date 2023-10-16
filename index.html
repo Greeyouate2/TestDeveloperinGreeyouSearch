@@ -50,6 +50,7 @@
 <link rel="icon" type="image/png" sizes="24x24" href="/icon-24x24.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
 <link rel="manifest" href="/manifest.json">
+    <meta name="google-site-verification" content="XS_qz8OLndh48l-joFqxzgZwQzr8-A48UMmaPh9Ga90" />
   </head>
   <body>
     <header>
@@ -93,17 +94,16 @@
    border-radius: 40px;
     width:330px;
   }
-  #searchButton{
-    background: skyblue;
- color: white;
-  text-align: center;
- padding: 7px;
- border-radius: 12px;
-    top: 12%;
+  #s::before{
+    content: "検索";
   }
-#searchButton:hover{
-  background: #79fce2;
-}
+  #s:before::hover{
+    content: "";
+    
+  }
+  #s::after{
+    content: "";
+  }
   html{
     background-image: url("background/IMG_0828.jpeg")
   }
@@ -142,7 +142,6 @@
   <center>
   <form id="form1" action="/search">
 <input id="sbox"  id="s" name="q" type="text">
-<input id="searchButton" type="submit" value="検索" />
     </form>
   </center>
     <header>
